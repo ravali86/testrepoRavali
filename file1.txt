@@ -1,0 +1,24 @@
+# plugin block
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
+  }
+}
+# provider block
+provider "aws" {
+  region     = "us-east-1"
+  access_key = "AKIAYLO675SD3JNJVCBB"
+  secret_key = "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"
+}
+# resource block
+resource "aws_instance" "web" {
+  ami           = "ami-007855ac798b5175e"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "Malli"
+  }
+}
